@@ -1,13 +1,16 @@
 sAgentLabel = 'wsl2'
 sImageMaven = 'maven:3-alpine'
 pipeline {
+    /*
     agent {
         label sAgentLabel
     }
+    */
+    agent none
     stages {
         agent {
             docker {
-                // label sAgentLabel
+                label sAgentLabel
                 image 'maven:3-alpine'
                 args  '-v $WORKSPACE/.m2:/root/.m2'
             }
