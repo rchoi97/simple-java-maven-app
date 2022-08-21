@@ -35,11 +35,16 @@ pipeline {
             }
         }
         stage('Deliver') {
+            agent {
+                docker {
+                    label     sAgentLabel
+                    image     'maven:3-alpine'
+                    args      '-v $WORKSPACE/.m2:/root/.m2'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
-                  hostname
-                  pwd
-                  id
                   ./jenkins/scripts/deliver.sh
                 '''
             }
