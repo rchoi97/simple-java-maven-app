@@ -1,6 +1,5 @@
 sImage = 'node:16.13.1-alpine'
 sAgentLabel = 'wsl2'
-
 pipeline {
     agent none
     stages {
