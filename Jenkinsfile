@@ -36,7 +36,12 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh '''
+                  hostname
+                  pwd
+                  id
+                  ./jenkins/scripts/deliver.sh
+                '''
             }
         }
     }
