@@ -1,0 +1,25 @@
+sImage = 'node:16.13.1-alpine'
+sAgentLabel = 'wsl2'
+
+pipeline {
+    agent none
+    stages {
+        stage('Start Container') {
+            // stage specific docker container
+            agent {
+                docker { 
+                  label sAgentLabel
+                  image sImage
+                }
+            }
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+    post {
+      always {
+        echo "INFO post"
+      }
+    }
+}

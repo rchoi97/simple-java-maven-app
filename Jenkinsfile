@@ -1,11 +1,6 @@
 sAgentLabel = 'wsl2'
 sImageMaven = 'maven:3-alpine'
 pipeline {
-    /*
-    agent {
-        label sAgentLabel
-    }
-    */
     agent none
     stages {
         agent {
