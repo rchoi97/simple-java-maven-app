@@ -14,6 +14,12 @@ pipeline {
             }
             steps {
                 sh """
+                    hostname | true
+                    hostname -i | true
+                    hostname -I | true
+                    pwd
+                    ps -elf
+                    id 
                     mvn -B -DskipTests clean package
                     sh -c 'timeout -t 3 ping google.com'
                 """
