@@ -1,20 +1,18 @@
-// sImageMaven = 'maven:3-alpine'
+sImageMaven = 'maven:3-alpine'
 // with env.V, both env.V and V works
 // with V, only V works (env.V does not)
 sAgentLabel = 'wsl2'
 pipeline {
     agent { label sAgentLabel }
     environment {
-        // variables must already defined, can be env or groovy
-        // variable here only go to ${env.V}
-        sImageMaven = 'maven:3-alpine'
+        // sImageMaven = 'maven:3-alpine'
     }
     stages {
         stage('Prepare') {
             steps {
                 sh """
                     ### both works
-                    echo "hello world"
+                    ### if define in environment, all V or env.V works
                     echo "sImageMaven:$sImageMaven" | true
                     echo "braced-sImageMaven:${sImageMaven}" | true
                     ### this is null
