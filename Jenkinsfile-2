@@ -3,11 +3,12 @@
 // with V, only V works (env.V does not)
 // env.sAgentLabel = 'wsl2'
 // sAgentLabel = ""
-def sAgentLabel = ""
+def sAgentLabel = "nothing"
 pipeline {
     agent { label sAgentLabel }
     environment {
         // variables must already defined, can be env or groovy
+        // variable here only go to ${env.V}
         sAgentLabel = 'wsl2'
         // sImageMaven = 'maven:3-alpine'
     }
