@@ -1,5 +1,5 @@
 sImageMaven = 'maven:3-alpine'
-sAgentLabel = 'wsl2'
+env.sAgentLabel = 'wsl2'
 pipeline {
     agent { label sAgentLabel }
     stages {
@@ -11,7 +11,7 @@ pipeline {
                     echo "braced-sAgentLabel:${sAgentLabel}" | true
                     ### this is null
                     echo "env.sAgentLabel:${env.sAgentLabel}" | true
-                    ###
+                    ### both works
                     echo "BUILD_ID:$BUILD_ID" | true
                     echo "env.BUILD_ID:${env.BUILD_ID}" | true
                 """
@@ -35,7 +35,7 @@ pipeline {
                     ps -elf
                     id 
                     mvn -B -DskipTests clean package
-                    sh -c 'timeout -t 3 ping google.com'
+                    sh -c 'timeout -t 3 ping google.com' | true
                 """
             }
         }
