@@ -15,12 +15,14 @@ pipeline {
                 sh """
                     ### both works
                     ### if define in environment, all V or env.V works
+                    ### if define outside pipeline, env.V does not works
                     echo "sImageMaven:$sImageMaven" | true
                     echo "braced-sImageMaven:${sImageMaven}" | true
                     ### this is null
                     echo "env.sImageMaven:${env.sImageMaven}" | true
                     ### both works
                     echo "BUILD_ID:$BUILD_ID" | true
+                    echo "BUILD_ID:\$BUILD_ID" | true
                     echo "env.BUILD_ID:${env.BUILD_ID}" | true
                 """
             }
