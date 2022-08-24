@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh """
                     mvn -B -DskipTests clean package
-                    timeout 3 ping google.com
+                    sh -c 'timeout -t 3 ping google.com'
                 """
             }
         }
