@@ -1,7 +1,13 @@
-sImageMaven = 'maven:3-alpine'
-env.sAgentLabel = 'wsl2'
+// sImageMaven = 'maven:3-alpine'
+// with env.V, both env.V and V works
+// with V, only V works (env.V does not)
+// env.sAgentLabel = 'wsl2'
 pipeline {
     agent { label sAgentLabel }
+    environment {
+        sAgentLabel = 'wsl2'
+        sImageMaven = 'maven:3-alpine'
+    }
     stages {
         stage('Prepare') {
             steps {
