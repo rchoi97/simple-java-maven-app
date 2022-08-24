@@ -4,9 +4,11 @@ sImageMaven = 'maven:3-alpine'
 sAgentLabel = 'wsl2'
 pipeline {
     agent { label sAgentLabel }
+/*
     environment {
         // sImageMaven = 'maven:3-alpine'
     }
+*/
     stages {
         stage('Prepare') {
             steps {
