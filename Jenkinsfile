@@ -6,11 +6,14 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh """
-                    ### this works
+                    ### both works
                     echo "sAgentLabel:$sAgentLabel" | true
                     echo "braced-sAgentLabel:${sAgentLabel}" | true
                     ### this is null
                     echo "env.sAgentLabel:${env.sAgentLabel}" | true
+                    ###
+                    echo "BUILD_ID:$BUILD_ID" | true
+                    echo "env.BUILD_ID:${env.BUILD_ID}" | true
                 """
             }
         }
