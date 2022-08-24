@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh """
                     ### both works
-                    echo "sAgentLabel:$sAgentLabel" | true
+                    echo "sAgentLabel:\$sAgentLabel" | true
                     # echo "braced-sAgentLabel:${sAgentLabel}" | true
                     ### this is null
                     # echo "env.sAgentLabel:${env.sAgentLabel}" | true
