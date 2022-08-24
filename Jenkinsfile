@@ -6,7 +6,10 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh """
+                    ### this works
                     echo "sAgentLabel:$sAgentLabel" | true
+                    echo "braced-sAgentLabel:${sAgentLabel}" | true
+                    ### this is null
                     echo "env.sAgentLabel:${env.sAgentLabel}" | true
                 """
             }
