@@ -17,6 +17,7 @@ pipeline {
                     ### if define in environment, all V or env.V works
                     ### if define outside pipeline, env.V does not works
                     echo "sImageMaven:$sImageMaven" | true
+                    echo "sh-env-sImageMaven:\$sImageMaven" | true
                     echo "braced-sImageMaven:${sImageMaven}" | true
                     ### this is null
                     echo "env.sImageMaven:${env.sImageMaven}" | true
