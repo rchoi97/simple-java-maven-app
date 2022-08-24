@@ -3,6 +3,14 @@ sAgentLabel = 'wsl2'
 pipeline {
     agent { label sAgentLabel }
     stages {
+        stage('Prepare') {
+            steps {
+                sh """
+                    echo "sAgentLabel:$sAgentLabel" | true
+                    echo "env.sAgentLabel:${env.sAgentLabel}" | true
+                """
+            }
+        }
         stage('Build') {
             agent {
                 docker {
